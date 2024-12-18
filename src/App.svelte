@@ -16,7 +16,7 @@
   //   //     { id: 5, path: hangman5 },
   //   //     { id: 6, path: hangman6 },
   //   //   ];
-  let image = "/Images/hangman0.png";
+
   //   const images = [
   //     hangman0,
   //     hangman1,
@@ -34,14 +34,6 @@
     {
       word: "COMPUTER",
       hint: "An electronic device for storing and processing data.",
-    },
-    {
-      word: "JAVASCRIPT",
-      hint: "A programming language primarily used for web development.",
-    },
-    {
-      word: "PYTHON",
-      hint: "A popular programming language known for its readability.",
     },
     {
       word: "OCEAN",
@@ -147,11 +139,14 @@
   startGame();
 </script>
 
-<img src={image} alt="hello" />
 <div class="wrapper">
   <h1>Hangman Game</h1>
   <h3>Mistakes: {mistakes} out of 6</h3>
-  <img class="hangman" src="/Images/hangman0.png" alt="Hangman Image" />
+  <img
+    class="hangman"
+    src="/Images/hangman{mistakes}.png"
+    alt="Hangman Image"
+  />
   <div class="word-div">{answerArray.join(" ")}</div>
 
   <button class="hint-button" on:click={showHint} disabled={isGameOver}>
@@ -180,8 +175,8 @@
 </div>
 
 <style>
-  body {
-    background-image: url("./Images/gamebackgound.png");
+  :global(body) {
+    background-image: url("/Images/gamebackgound.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: fixed;
